@@ -1,7 +1,7 @@
 import HotwireNative
 import UIKit
 
-let rootURL = URL(string: "http://192.168.1.5:3000")!
+let rootURL = URL(string: "http://192.168.31.234:3000")!
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?

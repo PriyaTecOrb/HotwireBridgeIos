@@ -53,9 +53,8 @@ final class FormComponent: BridgeComponent {
                 var formData: [String: String] = [:]
                 
                 for (index, field) in fields.enumerated() {
-                    if let textField = alert.textFields?[index],
-                       let text = textField.text, !text.isEmpty {
-                        formData[field.name] = text
+                    if let textField = alert.textFields?[index] {
+                        formData[field.name] = textField.text ?? ""
                     }
                 }
                 
