@@ -59,9 +59,11 @@ extension SceneDelegate: NavigatorDelegate {
         switch proposal.viewController {
         case WelcomeViewController.pathConfigurationIdentifier:
             let welcomeVC = WelcomeViewController(url: proposal.url)
+            welcomeVC.navigator = navigator
             return .acceptCustom(welcomeVC)
         case ProfileViewController.pathConfigurationIdentifier:
             let profileVC = ProfileViewController(url: proposal.url)
+            print("profileVC")
             return .acceptCustom(profileVC)
         default:
             return .accept

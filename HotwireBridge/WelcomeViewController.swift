@@ -66,7 +66,8 @@ class WelcomeViewController: UIViewController, PathConfigurationIdentifiable {
     }
     
     @objc private func continueTapped() {
-        let destinationURL = URL(string: "/profile", relativeTo: url)!
-            navigator?.route(destinationURL)
-        }
+        guard let profileURL = URL(string: "http://192.168.1.15:3000/profile") else { return }
+        navigator?.route(profileURL)
+    }
+
 }
