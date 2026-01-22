@@ -66,8 +66,8 @@ class WelcomeViewController: UIViewController, PathConfigurationIdentifiable {
     }
     
     @objc private func continueTapped() {
-            let userId = 5 // Replace with dynamic ID if needed
-            guard let profileURL = URL(string: "http://192.168.1.15:3000/profiles/\(userId).json") else { return }
+            let userId = 23 // Replace with dynamic ID if needed
+            guard let profileURL = URL(string: "http://192.168.1.15:3000/profiles/\(userId)") else { return }
             
             navigator?.route(profileURL)
     }

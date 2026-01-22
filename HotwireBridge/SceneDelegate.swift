@@ -47,14 +47,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate: NavigatorDelegate {
     func handle(proposal: VisitProposal, from navigator: Navigator) -> ProposalResult {
-       
-               print("🔔 NAVIGATION DETECTED!")
-               print("📍 Full URL: \(proposal.url)")
-               print("📍 URL Path: \(proposal.url.path)")
-               print("📍 URL Last Component: \(proposal.url.lastPathComponent)")
-               print("📍 View Controller: \(proposal.viewController ?? "nil")")
-               print("📍 Context: \(proposal.context)")
-               print("📍 Presentation: \(proposal.presentation)")
         // Check for native screens
         switch proposal.viewController {
         case WelcomeViewController.pathConfigurationIdentifier:
@@ -62,7 +54,6 @@ extension SceneDelegate: NavigatorDelegate {
             welcomeVC.navigator = navigator
             return .acceptCustom(welcomeVC)
         case ProfileViewController.pathConfigurationIdentifier:
-            print("===============")
             let profileVC = ProfileViewController(url: proposal.url)
             profileVC.navigator = navigator
             return .acceptCustom(profileVC)
