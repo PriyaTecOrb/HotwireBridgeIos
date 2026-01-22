@@ -8,10 +8,10 @@
         }
     },
     {
-        "patterns": [".*/profile"],
-        "properties": {
-            "view_controller" : "profile"
-        }
+      "patterns": ["^/profiles/\\d+$"],
+      "properties": {
+        "view_controller": "profile"
+      }
     },
     {
       "patterns": [

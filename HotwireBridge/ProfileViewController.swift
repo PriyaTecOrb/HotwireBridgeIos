@@ -35,6 +35,8 @@ class ProfileViewController : UIViewController, PathConfigurationIdentifiable {
     init(url: URL) {
         self.url = url
         super.init(nibName: nil, bundle: nil)
+        print("🎯 ProfileViewController initialized with URL: \(url)")
+                print("🎯 URL Path: \(url.path)")
     }
     
     required init?(coder: NSCoder) {
@@ -79,7 +81,15 @@ class ProfileViewController : UIViewController, PathConfigurationIdentifiable {
     }
     
     private func fetchProfile(){
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        var jsonURL = url
+                if !url.pathExtension.isEmpty {
+                    jsonURL = url.deletingPathExtension()
+                }
+                jsonURL = jsonURL.appendingPathExtension("json")
+                
+                print("📡 Fetching profile from: \(jsonURL)")
+        
+        let task = URLSession.shared.dataTask(with: jsonURL) { data, response, error in
             guard let data else { return }
             do {
                 let profile = try JSONDecoder().decode(Profile.self, from: data)

@@ -47,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate: NavigatorDelegate {
     func handle(proposal: VisitProposal, from navigator: Navigator) -> ProposalResult {
-        print("==================================================")
+       
                print("🔔 NAVIGATION DETECTED!")
                print("📍 Full URL: \(proposal.url)")
                print("📍 URL Path: \(proposal.url.path)")
@@ -62,8 +62,9 @@ extension SceneDelegate: NavigatorDelegate {
             welcomeVC.navigator = navigator
             return .acceptCustom(welcomeVC)
         case ProfileViewController.pathConfigurationIdentifier:
+            print("===============")
             let profileVC = ProfileViewController(url: proposal.url)
-            print("profileVC")
+            profileVC.navigator = navigator
             return .acceptCustom(profileVC)
         default:
             return .accept
